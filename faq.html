@@ -2,9 +2,28 @@
 <header><div class="container nav"><a class="brand" href="index.html"><span class="logo"></span><span>GetPay Demo</span></a></div></header>
 <main class="container" style="padding:32px 0">
   <h1>자주 묻는 질문</h1>
-  <details class="card"><summary><b>서비스는 무료인가요?</b></summary><p>초기 일부 기능은 무료, 이후 안정화 시 유료화 전환(가정)</p></details>
-  <details class="card"><summary><b>작성한 정보는 어디에 저장되나요?</b></summary><p>데모에서는 브라우저에만 로컬 저장(가정). 실제 서비스는 서버 저장 및 암호화 예정</p></details>
+  <details class="card"><summary><b>서비스는 무료인가요?</b></summary><div class="card-body"><p>초기 일부 기능은 무료, 이후 안정화 시 유료화 전환(가정)</p></div></details>
+  <details class="card"><summary><b>작성한 정보는 어디에 저장되나요?</b></summary><div class="card-body"><p>데모에서는 브라우저에만 로컬 저장(가정). 실제 서비스는 서버 저장 및 암호화 예정</p></div></details>
   <div class="pager"><a class="btn ghost" href="index.html">홈으로</a></div>
 </main>
-<style>.pager{display:flex;gap:10px;margin-top:20px}</style>
+<style>
+:root{--accent:#3b82f6;--border:#d7dce4;--shadow:0 12px 24px rgba(16,24,40,.06)}
+.container{max-width:720px}
+.card{border:1px solid var(--border);border-radius:16px;background:#fff;box-shadow:var(--shadow);overflow:hidden;margin:16px 0;transition:border-color .3s ease,box-shadow .3s ease}
+.card summary{list-style:none;padding:20px 56px 20px 24px;font-size:1.05rem;line-height:1.4;position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;transition:color .3s ease}
+.card summary::-webkit-details-marker{display:none}
+.card summary::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);opacity:0;transform:scaleY(.3);transition:opacity .3s ease,transform .3s ease}
+.card summary::after{content:"";position:absolute;right:24px;top:50%;width:12px;height:12px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-50%) rotate(-45deg);transition:transform .3s ease}
+.card:hover summary{color:var(--accent)}
+.card:hover summary::before{opacity:.45;transform:scaleY(1)}
+.card-body{padding:0 24px 0 24px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-top .35s ease,padding-bottom .35s ease}
+.card-body p{margin:0 0 20px}
+.card[open]{border-color:var(--accent);box-shadow:0 14px 30px rgba(59,130,246,.18)}
+.card[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.card[open] .card-body{padding:0 24px 24px 24px;max-height:320px}
+.pager{display:flex;gap:10px;margin-top:20px}
+@media (prefers-reduced-motion:reduce){
+  .card,.card summary,.card-body{transition:none}
+}
+</style>
 </body></html>
